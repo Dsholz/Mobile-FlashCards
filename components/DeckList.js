@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = ({ decks }) => {
   return {
-    deckslist: decks ? Object.keys(decks) : null
+    deckslist: decks ? Object.keys(decks) : {}
   }
 }
 
