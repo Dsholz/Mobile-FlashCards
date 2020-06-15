@@ -5,8 +5,6 @@ import { getDecks } from '../utils/helpers'
 import { connect } from 'react-redux'
 import { recieveAllDecks } from '../actions/decks'
 import { createStackNavigator } from '@react-navigation/stack'
-import * as Permissions from 'expo-permissions'
-import { Notifications } from 'expo'
 import { setReminderNotification, subscribeToNotifications } from '../utils/notifications'
 
 const { Navigator, Screen } = createStackNavigator()
@@ -47,12 +45,6 @@ const styles = StyleSheet.create({
   }
 })
 
-const mapStateToProps = ({ decks }) => {
-  console.log(decks)
-
-  return {
-    deckslist: decks ? Object.keys(decks) : {}
-  }
-}
+const mapStateToProps = ({ decks }) => ({ deckslist: decks ? Object.keys(decks) : {} })
 
 export default connect(mapStateToProps)(DeckList)

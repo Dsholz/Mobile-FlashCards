@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons'
 import DeckList from './DeckList'
@@ -14,18 +14,14 @@ const NewDeckOptions = {
 
 const { Navigator, Screen } = createBottomTabNavigator()
 
-class DeckNavigator extends Component {
-  render() {
-    return (
-      <Navigator
-        tabBarOptions={{
-          activeTintColor: '#42D1F6',
-        }}>
-        <Screen name='DeckList' component={DeckList} options={DeckListOptions} />
-        <Screen name='NewDeck' component={NewDeck} options={NewDeckOptions} />
-      </Navigator>
-    )
-  }
-}
+const DeckNavigator = () => (
+  <Navigator
+    tabBarOptions={{
+      activeTintColor: '#42D1F6',
+    }}>
+    <Screen name='DeckList' component={DeckList} options={DeckListOptions} />
+    <Screen name='NewDeck' component={NewDeck} options={NewDeckOptions} />
+  </Navigator>
+)
 
 export default DeckNavigator

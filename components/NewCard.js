@@ -26,9 +26,6 @@ class NewCard extends Component {
     const { question, answer } = this.state
     const { dispatch, route, navigation } = this.props
 
-    console.log(route.params.id)
-
-
     addCardToDeck(route.params.id, {
       question,
       answer

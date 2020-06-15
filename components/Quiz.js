@@ -12,9 +12,7 @@ class Quiz extends Component {
   }
 
   answerQuestion = (questionAnswer) => {
-    const { navigation, deck, route } = this.props
-    const { answer } = deck['questions'][route.params.answeredIndex]
-    const isAnswerCorrect = questionAnswer
+    const { navigation, route } = this.props
 
     clearAllNotifications()
       .then(setReminderNotification)
@@ -24,7 +22,7 @@ class Quiz extends Component {
     })
 
     this.setState((prevState) => ({
-      correctAnswers: isAnswerCorrect === 'Correct' ? prevState.correctAnswers + 1 : prevState.correctAnswers,
+      correctAnswers: questionAnswer === 'Correct' ? prevState.correctAnswers + 1 : prevState.correctAnswers,
       displayQuestionAnswer: false
     }))
   }
