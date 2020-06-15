@@ -48,6 +48,8 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = ({ decks }) => {
+  console.log(decks)
+
   return {
     deckslist: decks ? Object.keys(decks) : {}
   }
