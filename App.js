@@ -1,36 +1,57 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Text } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+import { createStackNavigator } from '@react-navigation/stack'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import decks from './reducers/decks'
+import logger from './middleware/logger';
+import DeckNavigator from './components/DeckNavgator'
+import IndividualDeck from './components/IndividualDeck';
+import Quiz from './components/Quiz'
+import NewCard from './components/NewCard'
 
-const instructions = Platform.select({
-  ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
-  android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`,
-});
+const { Navigator, Screen } = createStackNavigator()
+
+const store = createStore(combineReducers({ decks }))
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to React Native!</Text>
-      <Text style={styles.instructions}>To get started, edit App.js</Text>
-      <Text style={styles.instructions}>{instructions}</Text>
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Navigator
+          initialRouteName='DeckNavigator'>
+          <Screen
+            name='DeckNavigator'
+            component={DeckNavigator}
+            options={{
+              headerTitle: 'Mobile FlashCards',
+              headerStyle: {
+                backgroundColor: '#42D1F6'
+              },
+              headerTintColor: '#f7f7f7'
+            }} />
+          <Screen
+            name='IndividualDeck'
+            component={IndividualDeck}
+            options={({ route }) => ({
+              title: route.params.id
+            })} />
+          <Screen
+            name='NewCard'
+            component={NewCard}
+            options={({ route }) => ({
+              title: `Add Card To ${route.params.id}`,
+            })} />
+          <Screen
+            name='Quiz'
+            component={Quiz}
+            options={({ route }) => ({
+              title: `${route.params.id} Quiz`,
+            })} />
+        </Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
