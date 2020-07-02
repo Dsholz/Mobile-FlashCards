@@ -6,8 +6,8 @@ This react native mobile application allows users to create custom deck of quest
 ## Installation
 You can get the project up and running by following in order the processes outlined below:
 
-`yarn install`: This installs all of the project dependencies and adds a node_modules folder to the root of your project where all the dependency files live .
-`expo start`: Gets the project ruuning on a local server on your device or computer.
+- `yarn install`: This installs all of the project dependencies and adds a node_modules folder to the root of your project where all the dependency files live .
+- `expo start`: Gets the project ruuning on a local server on your device or computer.
 
 ## Usage
 
