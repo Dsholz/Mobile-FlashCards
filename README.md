@@ -1,7 +1,7 @@
 # Mobile FlashCards
 This react native mobile application allows users to create custom deck of questions by supplying the question and answers, Partake in decks quizzes. It also keeps track of your daily usage (If you haven't done a quiz the application will send you a local notification telling you to partake in a quiz).
 
-**This appliction has only been tested on the android platform**
+**N.B: This appliction has only been tested on the android platform**
 
 ## Installation
 You can get the project up and running by following in order the processes outlined below:
