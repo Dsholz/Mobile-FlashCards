@@ -17,8 +17,8 @@ export const setReminderNotification = async () => {
 
         const sendDate = new Date()
         sendDate.setDate(sendDate.getDate() + 1)
-        sendDate.setHours(2)
-        sendDate.setMinutes(15)
+        sendDate.setHours(10)
+        sendDate.setMinutes(45)
         sendDate.setSeconds(0)
 
         return await Notifications.scheduleLocalNotificationAsync({

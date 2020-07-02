@@ -1,16 +1,13 @@
 import * as React from 'react';
-import { Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { createStackNavigator } from '@react-navigation/stack'
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import decks from './reducers/decks'
-import logger from './middleware/logger';
-import DeckNavigator from './components/DeckNavgator'
-import IndividualDeck from './components/IndividualDeck';
-import Quiz from './components/Quiz'
-import NewCard from './components/NewCard'
+import decks from './src/reducers/decks'
+import DeckNavigator from './src/components/DeckNavgator'
+import IndividualDeck from './src/components/IndividualDeck';
+import Quiz from './src/components/Quiz'
+import NewCard from './src/components/NewCard'
 
 const { Navigator, Screen } = createStackNavigator()
 

@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = ({ decks }, { id }) => {
-  const pickedDeck = decks[id]
+  const pickedDeck = decks ? decks[id] : {}
 
   return {
     deck: pickedDeck ? pickedDeck : {}

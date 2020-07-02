@@ -45,6 +45,6 @@ const styles = StyleSheet.create({
   }
 })
 
-const mapStateToProps = ({ decks }) => ({ deckslist: decks ? Object.keys(decks) : {} })
+const mapStateToProps = ({ decks }) => ({ deckslist: decks ? Object.keys(decks) : [] })
 
 export default connect(mapStateToProps)(DeckList)

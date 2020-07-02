@@ -32,7 +32,7 @@ class NewDeck extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>What is the title of your new deck?</Text>
+        <Text style={styles.text}>Deck Name ?</Text>
         <TextInput
           style={styles.textInput}
           onChangeText={(text) => this.handleChange(text)}
@@ -66,8 +66,9 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 45,
+    fontWeight: '100',
+    marginBottom: 30,
     alignItems: "center",
-    color: 'gray'
   },
   submitBtn: {
     alignItems: "center",
